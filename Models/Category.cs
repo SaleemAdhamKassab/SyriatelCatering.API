@@ -14,11 +14,11 @@ namespace Syriatel_Cafe.Models
 
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public bool Enable { get; set; } = true;
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product>? Products { get; set; }
 
         public bool IsDeleted { get; set; }
     }

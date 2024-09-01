@@ -15,7 +15,7 @@ namespace Syriatel_Cafe.Models
         [Required]
         [MaxLength(100)]
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
         public decimal InitialPrice { get; set; } = 0;
@@ -27,10 +27,10 @@ namespace Syriatel_Cafe.Models
 
         public int AvailableProduact { get; set; }
 
-        public virtual Category Category { get; set; }
+        public virtual Category? Category { get; set; }
 
 
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Transaction>? Transactions { get; set; }
         public bool IsDeleted { get; set; }
 
 

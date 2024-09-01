@@ -27,8 +27,8 @@ namespace Syriatel_Cafe.Controllers
 
         // GET: api/Users/5
         //[ResponseType(typeof(User))]
-        [HttpGet("{id}")]
-        public IActionResult GetUser(string id)
+        [HttpGet("getMyUser")]
+        public IActionResult GetUser( [FromQuery] string id)
         {
             User user = db.Users.Find(id);
             if (user == null)

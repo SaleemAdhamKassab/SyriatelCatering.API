@@ -27,7 +27,7 @@ namespace Syriatel_Cafe.Controllers
         public IActionResult GetOrders([FromBody] GetOrderFilter filter)
         {
             filter.Date = TimeZoneInfo.ConvertTimeFromUtc(filter.Date, timeZone);
-            var result = db.Orders.Where(x => !x.IsDeleted && x.CreateDate >= filter.Date && x.CreateDate < filter.Date.AddDays(1)).ToList();
+            var result = db.Orders.Include(x => x.Status).Include(x => x.User).Where(x => !x.IsDeleted && x.CreateDate >= filter.Date && x.CreateDate < filter.Date.AddDays(1)).ToList();
             return Ok(result);
         }
 
@@ -299,7 +299,7 @@ namespace Syriatel_Cafe.Controllers
             //return Ok(orders);
 
             dateFilter = TimeZoneInfo.ConvertTimeFromUtc(dateFilter, timeZone);
-            var result = db.Orders.Where(x => x.UserName == identity.Substring(9) && !x.IsDeleted && x.CreateDate >= dateFilter && x.CreateDate < dateFilter.AddDays(1)).ToList();
+            var result = db.Orders.Include(x => x.Status).Where(x => x.UserName == identity.Substring(9) && !x.IsDeleted && x.CreateDate >= dateFilter && x.CreateDate < dateFilter.AddDays(1)).ToList();
             return Ok(result);
 
 

@@ -13,7 +13,7 @@ namespace Syriatel_Cafe.Models
         public int Id { get; set; }
 
         [ForeignKey("User")]
-        public string  UserName { get; set; }
+        public string?  UserName { get; set; }
 
         [NotMapped]
         public decimal Total { get; set; } = 0;
@@ -23,15 +23,15 @@ namespace Syriatel_Cafe.Models
         [ForeignKey("Status")]
         public int? StatusId { get; set; } = 2;
 
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
         public int Roof { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User? User { get; set; }
 
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Transaction>? Transactions { get; set; }
 
-        public virtual Status Status { get; set; }
+        public virtual Status? Status { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

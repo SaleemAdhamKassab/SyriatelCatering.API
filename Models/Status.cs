@@ -13,17 +13,17 @@ namespace Syriatel_Cafe.Models
         public int Id { get; set; }
 
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [ForeignKey("NextStatus")]
         public int? NextStatusId { get; set; }
 
 
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order>? Order { get; set; }
 
-        public virtual Status NextStatus { get; set; }
+        public virtual Status? NextStatus { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

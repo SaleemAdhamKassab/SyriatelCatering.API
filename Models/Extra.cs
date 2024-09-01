@@ -12,11 +12,11 @@ namespace Syriatel_Cafe.Models
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public decimal Price { get; set; } = 0;
 
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Transaction>? Transactions { get; set; }
         public bool IsDeleted { get; set ; }
     }
 }
