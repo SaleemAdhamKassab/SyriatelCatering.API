@@ -1,0 +1,6 @@
+@SyriatelCatering.API_HostAddress = http://localhost:5008
+
+GET {{SyriatelCatering.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
