@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Syriatel_Cafe;
 
@@ -11,9 +12,11 @@ using Syriatel_Cafe;
 namespace SyriatelCatering.API.Migrations
 {
     [DbContext(typeof(CafeModel))]
-    partial class CafeModelModelSnapshot : ModelSnapshot
+    [Migration("20240902115854_UpdateOrderTable")]
+    partial class UpdateOrderTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

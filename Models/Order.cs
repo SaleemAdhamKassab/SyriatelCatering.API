@@ -7,13 +7,13 @@ using System.Web;
 
 namespace Syriatel_Cafe.Models
 {
-    public class Order: ISoftDelete
+    public class Order : ISoftDelete
     {
         [Key]
         public int Id { get; set; }
 
         [ForeignKey("User")]
-        public string?  UserName { get; set; }
+        public string? UserName { get; set; }
 
         [NotMapped]
         public decimal Total { get; set; } = 0;
@@ -33,5 +33,6 @@ namespace Syriatel_Cafe.Models
 
         public virtual Status? Status { get; set; }
         public bool IsDeleted { get; set; }
+        public string? Note { get; set; }
     }
 }
