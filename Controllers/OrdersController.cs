@@ -23,6 +23,7 @@ namespace Syriatel_Cafe.Controllers
         }
         private TimeZoneInfo timeZone;
         // GET: api/Orders
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [HttpPost("getorders")]
         public IActionResult GetOrders([FromBody] GetOrderFilter filter)
         {
@@ -179,6 +180,7 @@ namespace Syriatel_Cafe.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [Route("/api/HandelOrder")]
         public IActionResult HandelTicket(int orderid)
         {
@@ -209,6 +211,7 @@ namespace Syriatel_Cafe.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [Route("/api/RejectOrder")]
         public IActionResult RejectOrder(int orderid)
         {

@@ -27,13 +27,18 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddDbContext<CafeModel>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var origins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
 builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
 {
     builder.AllowAnyMethod()
             .AllowAnyHeader()
-            .SetIsOriginAllowed(origin => true) // allow any origin you can change here to allow localhost:4200
+            .SetIsOriginAllowed(origin => origins.Contains("all") || origins
+            .Select(x => x.ToLower()).Contains(origin.ToLower())) // allow any origin you can change here to allow localhost:4200
             .AllowCredentials();
 }));
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

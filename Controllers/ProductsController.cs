@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Syriatel_Cafe.Models;
 
@@ -39,6 +40,7 @@ namespace Syriatel_Cafe.Controllers
         // PUT: api/Products/5
         //[ResponseType(typeof(void))]
         [HttpPut]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult PutProduct(int id, Product product)
         {
             if (!ModelState.IsValid)
@@ -78,6 +80,7 @@ namespace Syriatel_Cafe.Controllers
         // POST: api/Products
         //[ResponseType(typeof(Product))]
         [HttpPost]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult PostProduct(Product product)
         {
             if (!ModelState.IsValid)

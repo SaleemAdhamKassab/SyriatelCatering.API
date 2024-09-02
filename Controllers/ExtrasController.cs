@@ -41,6 +41,7 @@ namespace Syriatel_Cafe.Controllers
         // PUT: api/Extras/5
         //[ResponseType(typeof(void))]
         [HttpPut]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult PutExtra(int id, Extra extra)
         {
             if (!ModelState.IsValid)
@@ -80,6 +81,7 @@ namespace Syriatel_Cafe.Controllers
         // POST: api/Extras
         //[ResponseType(typeof(Extra))]
         [HttpPost]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult PostExtra(Extra extra)
         {
             if (!ModelState.IsValid)
@@ -95,6 +97,7 @@ namespace Syriatel_Cafe.Controllers
 
         // DELETE: api/Extras/5
         //[ResponseType(typeof(Extra))]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [HttpDelete("{id}")]
         public IActionResult DeleteExtra(int id)
         {

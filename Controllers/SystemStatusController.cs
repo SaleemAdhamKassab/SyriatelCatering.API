@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Syriatel_Cafe.Models;
@@ -127,6 +128,7 @@ namespace Syriatel_Cafe.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [Route("/api/CloseSystem")]
         public bool CloseSystem()
         {
@@ -142,6 +144,7 @@ namespace Syriatel_Cafe.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [Route("/api/OpenSystem")]
         public bool OpenSystem()
         {

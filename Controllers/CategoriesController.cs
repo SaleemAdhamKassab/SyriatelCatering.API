@@ -57,7 +57,7 @@ namespace Syriatel_Cafe.Controllers
         [Route("/api/AdminGategories")]
         [HttpGet]
 
-        [Authorize(Roles = "MIS-Technical Performance Information Analysis,AD-Catering Cashier,AD-Catering Staff")]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IQueryable<Category> AdminGategories()
         {
 
@@ -85,6 +85,7 @@ namespace Syriatel_Cafe.Controllers
 
         // PUT: api/Categories/5
         //[ResponseType(typeof(void))]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         [HttpPut("{id}")]
         public IActionResult PutCategory(int id, Category category)
         {
@@ -124,6 +125,7 @@ namespace Syriatel_Cafe.Controllers
         // POST: api/Categories
         //[ResponseType(typeof(Category))]
         [HttpPost]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult PostCategory(Category category)
         {
             if (!ModelState.IsValid)
@@ -141,6 +143,7 @@ namespace Syriatel_Cafe.Controllers
         // DELETE: api/Categories/5
         //[ResponseType(typeof(Category))]
         [HttpDelete]
+        [Authorize(Roles = "MIS-Technical Data Analysis,AD-Catering Cashier,AD-Catering Staff,AD-Catering HOSs")]
         public IActionResult DeleteCategory(int id)
         {
             Category category = db.Categories.Find(id);
