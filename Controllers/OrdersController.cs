@@ -186,7 +186,7 @@ namespace Syriatel_Cafe.Controllers
 
 		// DELETE: api/Orders/5
 		//[ResponseType(typeof(Order))]
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public IActionResult DeleteOrder(int id)
 		{
 			Order order = db.Orders.Find(id);
@@ -316,10 +316,6 @@ namespace Syriatel_Cafe.Controllers
 			}
 
 			return NoAvailable;
-
-
-
-
 		}
 
 
